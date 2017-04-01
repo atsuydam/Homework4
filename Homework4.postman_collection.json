@@ -1,0 +1,523 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Homework4",
+		"_postman_id": "b5a05f88-437e-21cd-323d-135a2100c398",
+		"description": "Testing a movie database",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://atsuydam-test.apigee.net/hwk4/moviedb/movies",
+			"request": {
+				"url": "http://atsuydam-test.apigee.net/hwk4/moviedb/movies",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "get all the movies in the database"
+			},
+			"response": [
+				{
+					"id": "21502ae9-bcc5-4894-a59d-eae91c7612fd",
+					"name": "all the movies",
+					"originalRequest": {
+						"url": "http://atsuydam-test.apigee.net/hwk4/moviedb/movies",
+						"method": "GET",
+						"header": [],
+						"body": {}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST",
+							"name": "Access-Control-Allow-Methods",
+							"description": "Specifies the method or methods allowed when accessing the resource. This is used in response to a preflight request."
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"name": "Access-Control-Allow-Origin",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Length",
+							"value": "664",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 01 Apr 2017 00:51:02 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"298-NGNCU5ope0v5z/NqDz3Ypc6msJQ\"",
+							"name": "ETag",
+							"description": "An identifier for a specific version of a resource, often a message digest"
+						},
+						{
+							"key": "Server",
+							"value": "Apigee Router",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"responseTime": 91,
+					"body": "[{\"_id\":\"58dedca1a4b2021becf6cf84\",\"year\":1977,\"title\":\"Star Wars\",\"__v\":0,\"actor\":[\"Mark Hamill\",\"Carrie Fisher\",\"Harrison Ford\"]},{\"_id\":\"58dedd3ca4b2021becf6cf85\",\"year\":1999,\"title\":\"The Matrix\",\"__v\":0,\"actor\":[\"Keanu Reeves\",\"Laurence Fishburne\",\"Carrie-Ann Moss\"]},{\"_id\":\"58dedd96a4b2021becf6cf86\",\"year\":1985,\"title\":\"Ladyhawk\",\"__v\":0,\"actor\":[\"Rutger Hauer\",\"Matthew Broderick\",\"Michelle Pfeiffer\"]},{\"_id\":\"58dedddaa4b2021becf6cf87\",\"year\":1988,\"title\":\"Willow\",\"__v\":0,\"actor\":[\"Val Kilmer\",\"Warwick Davis\",\"Joanne Whalley\"]},{\"_id\":\"58deeb3a12d04c23943cdb6d\",\"year\":1983,\"title\":\"Aladdin\",\"__v\":0,\"actor\":[\"Robin Williams\",\"Jaffar\",\"Boy in a vest\"]}]"
+				}
+			]
+		},
+		{
+			"name": "http://atsuydam-test.apigee.net/hwk4/moviedb/movies",
+			"request": {
+				"url": "http://atsuydam-test.apigee.net/hwk4/moviedb/movies",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\" : \"Rogue One\",\n\t\"year\" : \"2016\",\n\t\"actor\" : [\"Felicity jones\", \"Diego Luna\", \"Alan Tudyk\" ]\n}"
+				},
+				"description": "Saving a movie with all the properties"
+			},
+			"response": []
+		},
+		{
+			"name": "http://atsuydam-test.apigee.net/hwk4/moviedb/movies",
+			"request": {
+				"url": "http://atsuydam-test.apigee.net/hwk4/moviedb/movies",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\" : \"The Force Awakens\",\n\t\"year\" : \"2015\",\n}"
+				},
+				"description": "I have no idea why apigee is allowing this. It should come back denied since it's marked required: true for year which I've omitted. It errors when tested locally."
+			},
+			"response": [
+				{
+					"id": "e21800a7-64ff-42ed-bb74-c5f0f6f3e119",
+					"name": "now it errored",
+					"originalRequest": {
+						"url": "http://atsuydam-test.apigee.net/hwk4/moviedb/movies",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								"{",
+								"\n",
+								"\t",
+								"\"",
+								"t",
+								"i",
+								"t",
+								"l",
+								"e",
+								"\"",
+								" ",
+								":",
+								" ",
+								"\"",
+								"T",
+								"h",
+								"e",
+								" ",
+								"F",
+								"o",
+								"r",
+								"c",
+								"e",
+								" ",
+								"A",
+								"w",
+								"a",
+								"k",
+								"e",
+								"n",
+								"s",
+								"\"",
+								",",
+								"\n",
+								"\t",
+								"\"",
+								"y",
+								"e",
+								"a",
+								"r",
+								"\"",
+								" ",
+								":",
+								" ",
+								"\"",
+								"2",
+								"0",
+								"1",
+								"5",
+								"\"",
+								",",
+								"\n",
+								"}"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "html",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Length",
+							"value": "855",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self'",
+							"name": "Content-Security-Policy",
+							"description": "Custom header"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 01 Apr 2017 01:03:00 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Apigee Router",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff",
+							"name": "X-Content-Type-Options",
+							"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"responseTime": 68,
+					"body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Error</title>\n</head>\n<body>\n<pre>SyntaxError: Unexpected comma in object literal<br> &nbsp; &nbsp;at parse (/organization/environment/api/node_modules/body-parser/lib/types/json.js:88)<br> &nbsp; &nbsp;at /organization/environment/api/node_modules/body-parser/lib/read.js:116<br> &nbsp; &nbsp;at invokeCallback (/organization/environment/api/node_modules/raw-body/index.js:262)<br> &nbsp; &nbsp;at done (/organization/environment/api/node_modules/raw-body/index.js:251)<br> &nbsp; &nbsp;at onEnd (/organization/environment/api/node_modules/raw-body/index.js:307)<br> &nbsp; &nbsp;at emit (events.js:92)<br> &nbsp; &nbsp;at _stream_readable.js:943<br> &nbsp; &nbsp;at _tickDomainCallback (trireme.js:491)<br> &nbsp; &nbsp;at _tickFromSpinner (trireme.js:422)<br></pre>\n</body>\n</html>\n"
+				}
+			]
+		},
+		{
+			"name": "http://atsuydam-test.apigee.net/hwk4/moviedb/movies/{{title}}",
+			"request": {
+				"url": "http://atsuydam-test.apigee.net/hwk4/moviedb/movies/{{title}}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Fetching just one movie"
+			},
+			"response": [
+				{
+					"id": "22480f98-5ee0-407d-9ce5-df0d6e0d5895",
+					"name": "got willow",
+					"originalRequest": {
+						"url": "http://atsuydam-test.apigee.net/hwk4/moviedb/movies/{{title}}",
+						"method": "GET",
+						"header": [],
+						"body": {}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST",
+							"name": "Access-Control-Allow-Methods",
+							"description": "Specifies the method or methods allowed when accessing the resource. This is used in response to a preflight request."
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"name": "Access-Control-Allow-Origin",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Length",
+							"value": "119",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 01 Apr 2017 01:05:23 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"77-TCj4qQ1vYidc86Er71oqoKE438Y\"",
+							"name": "ETag",
+							"description": "An identifier for a specific version of a resource, often a message digest"
+						},
+						{
+							"key": "Server",
+							"value": "Apigee Router",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"responseTime": 177,
+					"body": "{\"_id\":\"58dedddaa4b2021becf6cf87\",\"year\":1988,\"title\":\"Willow\",\"actor\":[\"Val Kilmer\",\"Warwick Davis\",\"Joanne Whalley\"]}"
+				}
+			]
+		},
+		{
+			"name": "http://atsuydam-test.apigee.net/hwk4/moviedb/movies/{{title}}",
+			"request": {
+				"url": "http://atsuydam-test.apigee.net/hwk4/moviedb/movies/{{title}}",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": "Deleted Aladdin sincce \"a boy in a hat\" and \"Jaffar\" are no actor names"
+			},
+			"response": [
+				{
+					"id": "801d5a12-9867-4e4e-b5de-2a3ca9f34911",
+					"name": "it's gone",
+					"originalRequest": {
+						"url": "http://atsuydam-test.apigee.net/hwk4/moviedb/movies/{{title}}",
+						"method": "DELETE",
+						"header": [],
+						"body": {}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST",
+							"name": "Access-Control-Allow-Methods",
+							"description": "Specifies the method or methods allowed when accessing the resource. This is used in response to a preflight request."
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"name": "Access-Control-Allow-Origin",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Length",
+							"value": "27",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 01 Apr 2017 01:06:28 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1b-c+63+ZqJc72DHh+6v1aqfDJukao\"",
+							"name": "ETag",
+							"description": "An identifier for a specific version of a resource, often a message digest"
+						},
+						{
+							"key": "Server",
+							"value": "Apigee Router",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"responseTime": 103,
+					"body": "{\"message\":\"Movie deleted\"}"
+				}
+			]
+		},
+		{
+			"name": "http://atsuydam-test.apigee.net/hwk4/moviedb/movies/{{title}}",
+			"request": {
+				"url": "http://atsuydam-test.apigee.net/hwk4/moviedb/movies/{{title}}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "attempted to get Aladdin after deletion, no longer there"
+			},
+			"response": [
+				{
+					"id": "e677b515-7987-4f33-9dfe-0aafac5fa35e",
+					"name": "null means gone",
+					"originalRequest": {
+						"url": "http://atsuydam-test.apigee.net/hwk4/moviedb/movies/{{title}}",
+						"method": "GET",
+						"header": [],
+						"body": {}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST",
+							"name": "Access-Control-Allow-Methods",
+							"description": "Specifies the method or methods allowed when accessing the resource. This is used in response to a preflight request."
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"name": "Access-Control-Allow-Origin",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Length",
+							"value": "4",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 01 Apr 2017 01:07:21 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4-K+iMpCQsduglOsYkdIUQZQMtaDM\"",
+							"name": "ETag",
+							"description": "An identifier for a specific version of a resource, often a message digest"
+						},
+						{
+							"key": "Server",
+							"value": "Apigee Router",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"name": "X-Powered-By",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"responseTime": 99,
+					"body": "null"
+				}
+			]
+		}
+	]
+}
