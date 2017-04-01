@@ -13,7 +13,7 @@ var mongoose = require('mongoose');
 //mongoose.connect('mongodb://localhost/test');
 
 // connect to the database at mongolab.
-mongoose.connect('mongodb://AwesomeAmanda:dave4275@ds143980.mlab.com:43980/movies');
+mongoose.connect('mongodb://AwesomeAmanda:[redacted]@ds143980.mlab.com:43980/movies');
 
 // ok, declare a movie variable from the schema, or link to it
 var Movie = require('./app/models/movie');
